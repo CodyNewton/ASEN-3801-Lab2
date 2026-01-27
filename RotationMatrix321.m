@@ -7,11 +7,11 @@ function DCM = RotationMatrix321(attitude321)
 
 %% Convert the Angles into radians for the calculation
 % Roll input from attitude argument
-alpha = attitude321(1) * (pi/180);
+alpha = attitude321(1);
 % Pitch input from attitude argument
-beta = attitude321(2) * (pi/180);
+beta = attitude321(2);
 % Yaw input from attitude argument
-gamma = attitude321(3) * (pi/180);
+gamma = attitude321(3);
 
 %% Calculate the rotation matrix for rach movement about the specified axis
 Ralpha = [1,0,0;0,cos(alpha),sin(alpha);0,-sin(alpha),cos(alpha)];
