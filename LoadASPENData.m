@@ -3,10 +3,12 @@ function [t_vec, av_pos_inert, av_att, tar_pos_inert, tar_att] =LoadASPENData(fi
 test=readmatrix(filename); 
 
 %% cleaning up the data 
+if(find(isnan(test)))
 idx=find(isnan(test)); % finding all NaN values in the data
 [rowIdx, ~] = ind2sub(size(test), idx); % finding row idx of all NaN values in data 
-for i=1:length(rowIdx)
-test(rowIdx(i),:)=[]; % eliminating all NaN values in data
+
+test(rowIdx,:)=[]; % eliminating all NaN values in data
+
 end
 %% Parsing the data 
 Frame=test(:,1);
